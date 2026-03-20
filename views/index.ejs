@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Netra Zambia | Digital Presence & Lead Generation</title>
+    <meta
+      name="description"
+      content="Netra Zambia builds websites, blogs and social media presence for SMEs, plus one-page directory websites to generate leads."
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <%- include('partials/site_header') %>
+
+    <div class="hero container">
+      <div class="hero-grid">
+        <div>
+          <h1 class="title">Build your digital presence. Get leads. Grow.</h1>
+          <p class="subtitle">
+            Netra Zambia is a digital marketing agency for small and medium organizations. We help SMEs build websites,
+            blogs, social media presence, and other digital tools that turn attention into real business opportunities.
+          </p>
+
+          <div class="pill-row" aria-label="Services">
+            <div class="pill">Websites & blogs</div>
+            <div class="pill">Social media marketing</div>
+            <div class="pill">Lead generation tools</div>
+            <div class="pill">Directory one-page sites</div>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
+            <a class="btn btn-primary" href="/directory">Browse Directory</a>
+            <a class="btn" href="/admin/login">Create Company Page</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="font-weight:900;font-size:18px;margin-bottom:8px;">Call Center Support</div>
+          <div class="muted" style="line-height:1.6;">
+            Our call center operates <strong>16 hours a day, 6 days a week</strong> so SMEs don’t miss business
+            opportunities.
+          </div>
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.12);">
+            <div class="muted">Call us:</div>
+            <div style="font-weight:900;font-size:18px;margin-top:6px;"><%= netraPhone %></div>
+            <% if (netraEmail) { %>
+              <div class="muted" style="margin-top:8px;">Email: <a href="mailto:<%= netraEmail %>"><%= netraEmail %></a></div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="section-title">Directory Categories</div>
+      <div class="grid-3">
+        <% categories.forEach(function(cat) { %>
+          <a class="card" href="/category/<%= cat.slug %>" style="display:block;">
+            <div style="font-weight:900;font-size:16px;margin-bottom:6px;"><%= cat.name %></div>
+            <div class="muted" style="font-size:13px;line-height:1.5;">
+              One-page company sites inside this category.
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+
+    <%- include('partials/site_footer') %>
+
+    <script src="/scripts.js"></script>
+  </body>
+</html>
+

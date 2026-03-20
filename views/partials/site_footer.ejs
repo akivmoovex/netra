@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="footer">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div>
+        <strong>Netra Zambia</strong>
+        <div>Digital presence for SMEs: websites, blogs, social media, and lead generation.</div>
+      </div>
+      <div>
+        <div><span class="muted">Call Center:</span> <%= netraPhone %></div>
+        <% if (netraAddress) { %>
+          <div><span class="muted">Location:</span> <%= netraAddress %></div>
+        <% } %>
+        <% if (netraEmail) { %>
+          <div><span class="muted">Email:</span> <a href="mailto:<%= netraEmail %>"><%= netraEmail %></a></div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+
