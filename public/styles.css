@@ -8,6 +8,35 @@
   --border: rgba(255, 255, 255, 0.12);
 }
 
+/* Home page: lighter, cleaner look (scoped via <body class="home-page">) */
+.home-page {
+  --bg: #f8fafc;
+  --card: rgba(255, 255, 255, 0.95);
+  --text: rgba(15, 23, 42, 0.92);
+  --muted: rgba(15, 23, 42, 0.68);
+  --border: rgba(15, 23, 42, 0.12);
+}
+
+body.home-page {
+  background: linear-gradient(180deg, rgba(79, 140, 255, 0.10), transparent 55%),
+    linear-gradient(180deg, rgba(53, 209, 167, 0.08), transparent 55%), var(--bg);
+  color: var(--text);
+}
+
+body.home-page .btn {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: rgba(15, 23, 42, 0.04);
+}
+
+body.home-page .btn:not(.btn-primary):hover {
+  filter: none;
+  background: rgba(15, 23, 42, 0.06);
+}
+
+body.home-page .btn-primary {
+  color: #ffffff;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -236,5 +265,93 @@ textarea {
   border-radius: 10px;
   font-size: 12px;
   color: var(--muted);
+}
+
+/* Layout helpers used by the home page */
+.hero-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section-block {
+  margin-top: 38px;
+}
+
+.section-block--lg {
+  margin-top: 52px;
+}
+
+.cta-card {
+  padding: 24px;
+}
+
+/* Android-friendly breakpoints */
+@media (max-width: 980px) {
+  .home-page .grid-3 {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-page .hero {
+    padding: 22px 0 6px;
+  }
+
+  .home-page .title {
+    font-size: 34px;
+  }
+
+  .home-page .subtitle {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .home-page .section-title {
+    font-size: 20px;
+    margin: 20px 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page .container {
+    padding: 0 14px;
+  }
+
+  .home-page .title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .home-page .subtitle {
+    font-size: 14px;
+  }
+
+  .home-page .pill {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  .home-page .card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .home-page .hero-actions .btn {
+    flex: 1 1 160px;
+  }
+
+  .section-block--lg {
+    margin-top: 28px;
+  }
+
+  .section-block {
+    margin-top: 22px;
+  }
+
+  .cta-card {
+    padding: 16px;
+  }
 }
 
