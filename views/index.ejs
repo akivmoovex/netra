@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Netra Zambia | Digital Presence & Lead Generation</title>
+    <title>Netraz - A to Z for digital lead generation</title>
     <meta
       name="description"
-      content="Netra Zambia builds websites, blogs and social media presence for SMEs, plus one-page directory websites to generate leads."
+      content="From invisible to in-demand: we build digital systems that bring clients to you."
     />
     <link rel="stylesheet" href="/styles.css" />
   </head>
@@ -14,55 +14,86 @@
     <%- include('partials/site_header') %>
 
     <div class="hero container">
-      <div class="hero-grid">
-        <div>
-          <h1 class="title">Build your digital presence. Get leads. Grow.</h1>
-          <p class="subtitle">
-            Netra Zambia is a digital marketing agency for small and medium organizations. We help SMEs build websites,
-            blogs, social media presence, and other digital tools that turn attention into real business opportunities.
-          </p>
+      <div>
+        <h1 class="title">From invisible to in-demand: we build digital systems that bring clients to you.</h1>
+        <p class="subtitle">
+          We help companies attract, engage, and convert customers through websites, social media, and digital campaigns.
+        </p>
 
-          <div class="pill-row" aria-label="Services">
-            <div class="pill">Websites & blogs</div>
-            <div class="pill">Social media marketing</div>
-            <div class="pill">Lead generation tools</div>
-            <div class="pill">Directory one-page sites</div>
-          </div>
-
-          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
-            <a class="btn btn-primary" href="/directory">Browse Directory</a>
-            <a class="btn" href="/admin/login">Create Company Page</a>
-          </div>
+        <div class="pill-row" aria-label="Services">
+          <div class="pill">🌐 Website Development</div>
+          <div class="pill">📱 Social Media Growth</div>
+          <div class="pill">📈 Digital Campaigns</div>
         </div>
 
-        <div class="card">
-          <div style="font-weight:900;font-size:18px;margin-bottom:8px;">Call Center Support</div>
-          <div class="muted" style="line-height:1.6;">
-            Our call center operates <strong>16 hours a day, 6 days a week</strong> so SMEs don’t miss business
-            opportunities.
-          </div>
-          <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.12);">
-            <div class="muted">Call us:</div>
-            <div style="font-weight:900;font-size:18px;margin-top:6px;"><%= netraPhone %></div>
-            <% if (netraEmail) { %>
-              <div class="muted" style="margin-top:8px;">Email: <a href="mailto:<%= netraEmail %>"><%= netraEmail %></a></div>
-            <% } %>
-          </div>
+        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a class="btn btn-primary" href="/directory">Browse Directory</a>
+          <a class="btn" href="/admin/login">Get Started</a>
         </div>
       </div>
     </div>
 
     <div class="container">
-      <div class="section-title">Directory Categories</div>
-      <div class="grid-3">
-        <% categories.forEach(function(cat) { %>
-          <a class="card" href="/category/<%= cat.slug %>" style="display:block;">
-            <div style="font-weight:900;font-size:16px;margin-bottom:6px;"><%= cat.name %></div>
-            <div class="muted" style="font-size:13px;line-height:1.5;">
-              One-page company sites inside this category.
-            </div>
-          </a>
-        <% }) %>
+      <div style="margin-top:52px;">
+        <div class="section-title">Your digital presence should generate business</div>
+        <p class="subtitle" style="margin-bottom:0;">
+          Your website shouldn’t just exist. Your social media shouldn’t just post. Everything you do online should bring
+          you real customers.
+        </p>
+      </div>
+
+      <div style="margin-top:38px;">
+        <div class="section-title">What we build</div>
+        <div class="grid-3">
+          <div class="card">
+            <div style="font-weight:900;font-size:16px;margin-bottom:6px;">🌐 Website Development</div>
+            <div class="muted">Modern, fast websites designed to convert visitors into leads.</div>
+          </div>
+
+          <div class="card">
+            <div style="font-weight:900;font-size:16px;margin-bottom:6px;">📱 Social Media Growth</div>
+            <div class="muted">Build trust and turn your audience into customers.</div>
+          </div>
+
+          <div class="card">
+            <div style="font-weight:900;font-size:16px;margin-bottom:6px;">📈 Digital Campaigns</div>
+            <div class="muted">Targeted campaigns that bring qualified leads.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:38px;">
+        <div class="section-title">How It Works</div>
+        <p class="subtitle" style="margin-bottom:0;">Audit → Build → Launch → Optimize</p>
+      </div>
+
+      <div style="margin-top:38px;">
+        <div class="section-title">Why Netraz</div>
+        <div class="list" style="margin-top:10px;">
+          <div class="muted">Focus on real results</div>
+          <div class="muted">Systems, not one-off projects</div>
+          <div class="muted">Technical + marketing expertise</div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:24px;margin-top:38px;">
+        <div class="section-title" style="margin:0 0 10px;">Your next customer is already online</div>
+        <p class="subtitle" style="margin:0 0 14px;">Let’s build a system that brings them to you.</p>
+        <a class="btn btn-primary" href="/admin/login">Get Started</a>
+      </div>
+
+      <div style="margin-top:38px;">
+        <div class="section-title">Directory Categories</div>
+        <div class="grid-3">
+          <% categories.forEach(function(cat) { %>
+            <a class="card" href="/category/<%= cat.slug %>" style="display:block;">
+              <div style="font-weight:900;font-size:16px;margin-bottom:6px;"><%= cat.name %></div>
+              <div class="muted" style="font-size:13px;line-height:1.5;">
+                One-page company sites inside this category.
+              </div>
+            </a>
+          <% }) %>
+        </div>
       </div>
     </div>
 
