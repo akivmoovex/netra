@@ -3,6 +3,7 @@ data/*.sqlite*
 .env
 .env.*
 sessions.sqlite*
+sessions.db*
 
 *.log
 

@@ -3,7 +3,8 @@ const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const session = require("express-session");
-const SQLiteStore = require("connect-sqlite3")(session);
+const BetterSqlite3 = require("better-sqlite3");
+const SqliteSessionStore = require("better-sqlite3-session-store")(session);
 const fs = require("fs");
 
 require("dotenv").config();
@@ -34,8 +35,11 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const sessionSecret = process.env.SESSION_SECRET || "dev_secret_change_me";
 const sessionDir = process.env.SESSION_DIR || path.join(__dirname, "data");
-const sessionDbName = process.env.SESSION_DB || "sessions";
+const sessionDbPath = process.env.SESSION_DB_PATH || path.join(sessionDir, "sessions.db");
 fs.mkdirSync(sessionDir, { recursive: true });
+
+// Separate DB for session storage (avoid mixing with app data tables)
+const sessionDb = new BetterSqlite3(sessionDbPath);
 
 app.use(
   session({
@@ -43,11 +47,13 @@ app.use(
     secret: sessionSecret,
     resave: false,
     saveUninitialized: false,
-    store: new SQLiteStore({
-      dir: sessionDir,
-      db: sessionDbName,
-      table: "sessions",
-      createDirIfNotExists: true,
+    store: new SqliteSessionStore({
+      client: sessionDb,
+      expired: {
+        clear: true,
+        // Cleanup expired sessions every ~15 minutes
+        intervalMs: 15 * 60 * 1000,
+      },
     }),
     cookie: {
       httpOnly: true,
